@@ -1,0 +1,5 @@
+@relation test
+@attribute image_file string
+@attribute class {cola,fruit,lemon,orange,strawberry}
+@data
+upload.jpg,?
