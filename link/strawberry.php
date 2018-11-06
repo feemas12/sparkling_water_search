@@ -43,7 +43,7 @@
                     <div class="col-8 mx-auto">
                         <div class="border border-danger" >
                             <div class=" text-center my-auto p-5" style="background-color:rgba(255, 255, 255, 0.8); ">
-                              <h1>ผลเปรียบเทียบ</h1>   
+                            <h1>ผลเปรียบเทียบ</h1>   
                             <div class="row ">
                               <div class ="col-5 mx-auto ">
                                <img src="../temp/upload.jpg" class="img-fluid border border-danger"  style="height:300px;width:220px">
@@ -55,6 +55,7 @@
                                </div>
                              </div>
                              <hr>
+							<h4> Strawberry (น้ำแดง) </h4>
                             </div>
                         </div>
                     </div>
