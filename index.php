@@ -34,6 +34,19 @@
             font-size: 16px;
             font-weight: bold;
         }
+		@font-face {
+		  font-family: "FontAwesome";
+		  src: url("font/fontawesome-webfont.eot"); /* IE9 Compat Modes */
+		  src: url("font/fontawesome-webfont?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+			url("font/fontawesome-webfont.ttf") format("truetype"), /* Safari, Android, iOS */
+			url("font/fontawesome-webfont.woff") format("woff"), /* Modern Browsers */
+			url("font/fontawesome-webfont.woff2") format("woff2"); /* Modern Browsers */
+			font-weight: normal;
+			font-style: normal;
+		}
+		*{
+			font-family:"FontAwesome";
+		}
         </style>
     </head>
     <body>
@@ -76,35 +89,25 @@
                @copy($_FILES["fileToUpload"]["tmp_name"], $target_dir."upload.jpg");
                $ImageFilter = "java -cp weka.jar;imageFilters.jar;lire.jar weka.filters.unsupervised.instance.imagefilter.SimpleColorHistogramFilter -i test.arff -D temp -o temp\data.arff";
                exec($ImageFilter);
-               $RemoveString = "java -cp weka.jar weka.filters.unsupervised.attribute.RemoveType -T string -i temp\data.arff -o temp\RemoveString.arff";
+               $RemoveString = "java -cp weka.jar weka.filters.unsupervised.attribute.RemoveType -T string -i temp//data.arff -o temp//RemoveString.arff";
                exec($RemoveString);
-               $Prediction = "java -cp weka.jar weka.classifiers.trees.RandomForest -T temp\RemoveString.arff -l model.model -p 0";
+               $Prediction = "java -cp weka.jar weka.classifiers.trees.RandomForest -T temp//RemoveString.arff -l model.model -p 0";
                exec($Prediction, $output);
                if (!empty($output)) {
                    preg_match('#[[:alpha:]]+#', $output[5], $output);
                    if ($output[0] != "") {
                        if ($output[0] == "cola") {
-                           $Imgname = "train/cola_01.jpg";
-                           $Name = "Cola";
                            $Link  = "link/cola.php";
                        } elseif ($output[0] == "fruit") {
-                           $Imgname = "train/fruit_01.jpg";
-                           $Name = "Fruit (น้ำเขียว)";
                            $Link  = "link/fruit.php";
                        } elseif ($output[0] == "lemon") {
-                           $Imgname = "train/lemon_01.jpg";
-                           $Name = "Lemon (สไปร์ท)";
                            $Link  = "link/lemon.php";
                        } elseif ($output[0] == "orange") {
-                           $Imgname = "train/orange_01.jpg";
-                           $Name = "Oranges (น้ำส้ม)";
                            $Link  = "link/orange.php";
                        } elseif ($output[0] == "strawberry") {
-                           $Imgname = "train/strawberry_01.jpg";
-                           $Name = "Strawberry (น้ำแดง)";
                            $Link  = "link/strawberry.php";
                        }
-                       header('Location:'.$Link);
+						header('location:'.$Link);
                    }
                }
            }

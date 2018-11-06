@@ -7,7 +7,7 @@
             crossorigin="anonymous">
         <title>Sparkling Water Search</title>
         <style>
-            html,
+        html,
             body {
                 background: url(../img/bg.jpg) no-repeat center center fixed; 
                 -webkit-background-size: cover;
@@ -55,6 +55,7 @@
                                </div>
                              </div>
                              <hr>
+							<h4>Cola (โคล่า) </h4>
                             </div>
                         </div>
                     </div>
